@@ -15,13 +15,10 @@ class DetailsPage extends StatelessWidget {
         ),
       ),
       body: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           SizedBox(height: 20,width: 20,),
           Container(
-            width: 380,
-            alignment: Alignment.center,
+            margin: EdgeInsets.all(15),
             padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
