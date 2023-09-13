@@ -10,32 +10,40 @@ class DetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Article Body',
         ),
       ),
       body: Column(
         children: [
-          SizedBox(height: 20,width: 20,),
+          const SizedBox(
+            height: 20,
+            width: 20,
+          ),
           Container(
-            margin: EdgeInsets.all(15),
-            padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(
+            margin: const EdgeInsets.all(15),
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  BoxShadow(blurRadius: 8,
-                  spreadRadius: 2)
-                ],
-                color: Colors.white70
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('#${article.id}',style: TextStyle(fontWeight: FontWeight.w800,fontSize: 22,color: Colors.blue),),
-                  Text('${article.body}',style: TextStyle(fontWeight: FontWeight.w700,fontSize: 20),textAlign: TextAlign.center,
-                  ),
-                ],
-              ),
+                boxShadow: const [BoxShadow(blurRadius: 8, spreadRadius: 2)],
+                color: Colors.white70),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '#${article.id}',
+                  style: const TextStyle(
+                      fontWeight: FontWeight.w800,
+                      fontSize: 22,
+                      color: Colors.blue),
+                ),
+                Text(
+                  '${article.body}',
+                  style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
           )
         ],
       ),
