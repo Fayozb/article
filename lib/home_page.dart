@@ -37,6 +37,16 @@ class _HomePageState extends State<HomePage> {
       isLoading = false;
     });
     refreshController.loadComplete();
+
+  }
+  Future<void> refreshArticle() async {
+    final Uri url = Uri.https('jsonplaceholder.typicode.com', '/posts');
+    final response = await http.get(url);
+    final List<dynamic> jsonList = json.decode(response.body);
+    setState(() {
+      _article = jsonList.map((json) => Article.fromJson(json)).toList();
+    });
+    refreshController.refreshCompleted();
   }
 
   @override
@@ -44,6 +54,7 @@ class _HomePageState extends State<HomePage> {
     // TODO: implement dispose
     super.dispose();
     refreshController.dispose();
+
   }
 
   @override
@@ -59,6 +70,7 @@ class _HomePageState extends State<HomePage> {
           : SmartRefresher(
               enablePullUp: true,
               onLoading: _initialFetchArticles,
+              onRefresh: refreshArticle,
               controller: refreshController,
               child: ListView.builder(
                   itemCount: _article.length,
