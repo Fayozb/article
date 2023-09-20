@@ -37,8 +37,8 @@ class _HomePageState extends State<HomePage> {
       isLoading = false;
     });
     refreshController.loadComplete();
-
   }
+
   Future<void> refreshArticle() async {
     final Uri url = Uri.https('jsonplaceholder.typicode.com', '/posts');
     final response = await http.get(url);
@@ -54,7 +54,6 @@ class _HomePageState extends State<HomePage> {
     // TODO: implement dispose
     super.dispose();
     refreshController.dispose();
-
   }
 
   @override
@@ -68,7 +67,6 @@ class _HomePageState extends State<HomePage> {
               child: CircularProgressIndicator(),
             )
           : SmartRefresher(
-              enablePullUp: true,
               onLoading: _initialFetchArticles,
               onRefresh: refreshArticle,
               controller: refreshController,
